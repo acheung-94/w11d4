@@ -1,0 +1,7 @@
+app/models/item.rb 60705762501f13d84cfafefe3c5c733252351a1b
+app/models/move.rb 3d494de89a3bb78ea72d14199611889e645dc60d
+app/models/pokemon.rb cb6230d69789f23a8c4f327ea2748dc4a21330a5
+app/models/poke_move.rb 70b838d61b544ffdcd6d74b9795e93b9ee39cd8d
+app/models/application_record.rb 3ddc096670c55bf364746588cd1f8471008ca6e8
+app/controllers/api/pokemon_controller.rb 49746fea083ee1c26152f2b45db9b2e67322b5c3
+app/controllers/application_controller.rb f1f66968b9c5a631cc658ffe00dfafa97d57dcdc

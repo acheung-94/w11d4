@@ -33,7 +33,7 @@ class Pokemon < ApplicationRecord
         'steel'
       ].sort.freeze
     validates :image_url, presence: true
-    validates :captured, inclusion: [true, false], message: "'%{value} must be true or false.'"
+    validates :captured, inclusion: {in: [true, false], message: "'%{value} must be true or false.'"}
     validates :name, length: {in: 3..255}, uniqueness: { 
         message: "'%{value}' is already in use"
     }
@@ -56,4 +56,8 @@ class Pokemon < ApplicationRecord
         source: :move
 
     has_many :items
+
+    def self.find_by_id(id) 
+        Pokemon.find_by(id: id)
+    end
 end

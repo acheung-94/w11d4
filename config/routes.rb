@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :api, defaults: {format: :json} do
+    resources :pokemon, only: [:index, :show, :create, :update] do 
+      resources :items, only: [:index, :create]
+    end
+    resources :items, only: [:update, :destroy]
+    get '/pokemon/types', to: 'pokemon#types'
+  end
 end
