@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :items, only: [:update, :destroy]
     get '/pokemon/types', to: 'pokemon#types'
   end
+  
 end

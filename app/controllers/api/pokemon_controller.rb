@@ -1,6 +1,7 @@
 class Api::PokemonController < ApplicationController
     def index() 
-        render json: Pokemon.all()
+        @poke = Pokemon.all()
+        render :index
     end
     def create() 
         @poke = Pokemon.new(poke_params)
