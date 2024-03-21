@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_182354) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_193814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_182354) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_items_on_pokemon_id"
+  end
+
+  create_table "moves", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_moves_on_name", unique: true
+  end
+
+  create_table "poke_moves", force: :cascade do |t|
+    t.bigint "move_id", null: false
+    t.bigint "pokemon_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id", "move_id"], name: "index_poke_moves_on_pokemon_id_and_move_id", unique: true
+    t.index ["pokemon_id"], name: "index_poke_moves_on_pokemon_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -40,4 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_182354) do
   end
 
   add_foreign_key "items", "pokemons"
+  add_foreign_key "poke_moves", "moves"
+  add_foreign_key "poke_moves", "pokemons"
 end

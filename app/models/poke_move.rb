@@ -1,16 +1,14 @@
 # == Schema Information
 #
-# Table name: items
+# Table name: poke_moves
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
-#  price      :integer          not null
-#  happiness  :integer          not null
-#  image_url  :string           not null
+#  move_id    :bigint           not null
 #  pokemon_id :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Item < ApplicationRecord
+class PokeMove < ApplicationRecord
+  belongs_to :move
   belongs_to :pokemon
 end
