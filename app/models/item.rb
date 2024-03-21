@@ -12,5 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord
+  validates :name, length: { maximum: 255 }
+  validates :price, numericality: {only_integer: true, greater_than: -1}
+
   belongs_to :pokemon
 end

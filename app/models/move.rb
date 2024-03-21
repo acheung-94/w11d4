@@ -9,4 +9,11 @@
 #
 class Move < ApplicationRecord
     validates :name, uniqueness: true, presence: true
+
+    has_many :poke_moves,
+        dependent: :destroy;
+
+    has_many :pokemons,
+        through: :poke_moves,
+        source: :pokemon
 end
